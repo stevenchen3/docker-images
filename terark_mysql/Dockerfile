@@ -6,7 +6,7 @@ RUN apt-get install vim -y
 
 # install gcc
 RUN apt-get install build-essential -y; exit 0
-RUN apt-get install gcc-4.8 -y
+RUN apt-get install gcc-5 -y
 
 # tsing hua deb source
 RUN echo '# Tsinghua deb source \n\
@@ -21,6 +21,10 @@ RUN apt-get install wget -y
 RUN apt-get install perl -y
 RUN apt-get install libaio1 libaio-dev -y
 
+RUN cd /home && wget http://terark-downloads.oss-cn-qingdao.aliyuncs.com/mysql_rocksdb/r5.6.35/mysql-on-terarkdb-Linux-x86_64-g%2B%2B-5.4-bmi2-1.tar.xz
+RUN cd /home && tar -xvf mysql-on-terarkdb-Linux-x86_64-g++-5.4-bmi2-1.tar.xz
+RUN useradd mysql && cd /home/mysql-on-terarkdb && chown -R mysql.mysql .
 
+RUN mkdir /home/tmp
 
-
+RUN apt-get install libreadline6 libreadline6-dev -y
