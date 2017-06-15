@@ -30,3 +30,4 @@ RUN cd /home/mysql-on-terarkdb && ./init.sh
 
 RUN apt-get install libreadline6 libreadline6-dev -y
 RUN apt-get install git -y; exit 0
+RUN apt-get install python -y; exit 0
