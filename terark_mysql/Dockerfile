@@ -25,9 +25,11 @@ RUN apt-get install libaio1 libaio-dev -y
 
 RUN cd /home && wget http://terark-downloads.oss-cn-qingdao.aliyuncs.com/mysql_rocksdb/r5.6.35/mysql-on-terarkdb-Linux-x86_64-g%2B%2B-5.4-bmi2-1.tar.xz
 RUN cd /home && tar -xvf mysql-on-terarkdb-Linux-x86_64-g++-5.4-bmi2-1.tar.xz
+RUN cd /home && rm -rf mysql-on-terarkdb-Linux-x86_64-g++-5.4-bmi2-1.tar.xz
+
 RUN useradd terark && cd /home/mysql-on-terarkdb && chown -R terark.terark .
 RUN cd /home/mysql-on-terarkdb && ./init.sh
-
-RUN mkdir /home/tmp
+RUN echo 'rocksdb_commit_in_the_middle=1' >> /home/mysql-on-terarkdb/my.cnf
 
 RUN apt-get install libreadline6 libreadline6-dev -y
+RUN apt-get install openjdk-8-jre -y; exit 0
