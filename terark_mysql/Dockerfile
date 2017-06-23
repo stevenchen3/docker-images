@@ -28,8 +28,12 @@ RUN cd /home && tar -xvf mysql-on-terarkdb-Linux-x86_64-g++-5.4-bmi2-1.tar.xz
 RUN cd /home && rm -rf mysql-on-terarkdb-Linux-x86_64-g++-5.4-bmi2-1.tar.xz
 
 RUN useradd terark && cd /home/mysql-on-terarkdb && chown -R terark.terark .
-RUN cd /home/mysql-on-terarkdb && ./init.sh
 RUN echo 'rocksdb_commit_in_the_middle=1' >> /home/mysql-on-terarkdb/my.cnf
+RUN cd /home/mysql-on-terarkdb && ./init.sh
 
 RUN apt-get install libreadline6 libreadline6-dev -y
 RUN apt-get install openjdk-8-jre -y; exit 0
+
+RUN apt-get install libreadline6 libreadline6-dev -y
+RUN apt-get install git -y; exit 0
+RUN apt-get install python -y; exit 0
