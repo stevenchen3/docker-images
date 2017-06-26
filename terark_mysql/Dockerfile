@@ -47,8 +47,6 @@ RUN cd /home/mysql-on-terarkdb-4.8-bmi2-0 && ./init.sh
 
 # extra tools
 RUN apt-get install libreadline6 libreadline6-dev -y
-RUN apt-get install openjdk-8-jre -y; exit 0
-
-RUN apt-get install libreadline6 libreadline6-dev -y
+# RUN apt-get install openjdk-8-jre -y; exit 0
 RUN apt-get install git -y; exit 0
 RUN apt-get install python -y; exit 0
